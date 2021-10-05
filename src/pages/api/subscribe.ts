@@ -13,7 +13,7 @@ type User = {
   }
 }
 
-export default async function (req: NextApiRequest, res: NextApiResponse) => {
+const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     const session = await getSession({ req })
 
@@ -21,7 +21,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) => {
       q.Get(
         q.Match(
           q.Index('user_by_email'),
-          q.Casefold(session.useer.email)
+          q.Casefold(session.user.email)
         )
       )
     )
@@ -66,3 +66,5 @@ export default async function (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).end('Method not allowed')
   }
 }
+
+export default subscribe
