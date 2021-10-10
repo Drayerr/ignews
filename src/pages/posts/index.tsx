@@ -8,8 +8,8 @@ export default function Posts() {
         <title>Posts | Ignews</title>
       </Head>
 
-      <main>
-        <div>
+      <main className={styles.container}>
+        <div className={styles.posts}>
           <a href="">
             <time>12 de outubro</time>
             <strong>Titulo por aq</strong>
